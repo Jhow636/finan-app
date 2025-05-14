@@ -7,25 +7,23 @@ export default function BalanceItem({data}: any) {
     if (data.tag === 'saldo') {
       return {
         label: 'Saldo atual',
-        color: '3b3bdf',
+        color: '#3b3bdf',
       };
     } else if (data.tag === 'receita') {
       return {
         label: 'Entradas de hoje',
-        color: '00b94a',
+        color: '#00b94a',
       };
     } else {
       return {
         label: 'Saidas de hoje',
-        color: 'ef463a',
+        color: '#ef463a',
       };
     }
   }, [data]);
 
-  console.log('data: ', data);
-
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: labelName.color}]}>
       <Text style={styles.label}>{labelName.label}</Text>
       <Text style={styles.balance}>R$ {data.saldo}</Text>
     </View>

@@ -2,11 +2,15 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import Home from '../pages/Home';
+import Profile from '../pages/Profile';
+import Registers from '../pages/Registers';
+import CustomDrawer from '../components/CustomDrawer';
 const AppDrawer = createDrawerNavigator();
 
 export default function AppRoutes() {
   return (
     <AppDrawer.Navigator
+      drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
 
@@ -22,6 +26,8 @@ export default function AppRoutes() {
         drawerInactiveBackgroundColor: '#f0f2ff',
       }}>
       <AppDrawer.Screen name="Home" component={Home} />
+      <AppDrawer.Screen name="Registrar" component={Registers} />
+      <AppDrawer.Screen name="Perfil" component={Profile} />
     </AppDrawer.Navigator>
   );
 }
